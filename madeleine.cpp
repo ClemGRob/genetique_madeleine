@@ -1,5 +1,9 @@
 #include "madeleine.h"
 #include "client.h"
+#include "parametres.h"
+#include "qstd.h"
+using namespace qstd;
+
 
 Madeleine::Madeleine(int lait, int sucre, int beurre, int oeuf, int farinne)
 {
@@ -18,7 +22,13 @@ int Madeleine::getValueClient(QString client)
     else if(client=="ado") indice = 1;
     else if(client=="adulte") indice = 2;
     else if(client=="vieux") indice = 3;
-    for(int i = 0; i<5; i++) retour += Client::c_preference[indice][i]*Client::c_importanceClient[indice]*m_ingrediant[indice];
+    for(int i = 0; i<5; i++)
+    {
+        retour += Client::c_preference[indice][i]
+            *Client::c_importanceClient[indice]
+            *m_ingrediant[indice];
+    cout<<Client::c_preference[indice][i]<<" "<<Client::c_importanceClient[indice]<<" "<<m_ingrediant[indice]<<endl;
+    }
     return retour;
 }
 int Madeleine::getValue()
@@ -26,12 +36,11 @@ int Madeleine::getValue()
     int valeur = 0;
     foreach(QString client, Client::c_categorie)
     {
-        valeur +=getValueClient(client);
+        int ajout =getValueClient(client);
+        valeur += ajout;
+        cout<<client<<" : "<<ajout<<endl;
     }
-    for(int i = 0; i<4; i++)
-    {
-
-    }
+    return valeur;
 }
 
 

@@ -4,6 +4,7 @@
 
 
 
+
 void Individu::mutation()
 {
     // si lancé de dé float < taux mutation
