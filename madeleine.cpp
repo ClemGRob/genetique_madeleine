@@ -61,10 +61,21 @@ void Madeleine::mutation()
     }
 }
 
-/*
+
 QString Madeleine::toString()
 {
-    QString retour="ingredient";
-    for(int i = 0; i >5; i++)retour+=toString()
+    QString res;
+    QTextStream buf(&res);
+    buf<<"ingredient"<<" : [";
+    for(int i = 0; i <5; i++)
+    {
+
+        buf<<m_ingredient[i];
+        if(i!=4) buf<<", ";
+    }
+
+    buf<<"]";
+    return res;
+
 }
-*/
+
