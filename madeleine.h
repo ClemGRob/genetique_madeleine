@@ -7,14 +7,18 @@
 class Madeleine
 {
 private:
-    int sucre;
-    int farinne;
-    int oeuf;
-    int lait;
-    int beurre;
+    int m_ingrediant[5];
+/*
+    int m_sucre;
+    int m_farinne;
+    int m_oeuf;
+    int m_lait;
+    int m_beurre;*/
 public:
-    Madeleine();
+    Madeleine(int lait, int sucre, int beurre, int oeuf, int farrine);
     QString toString();
+    int getValueClient(QString client);
+    int getValue
 };
 
 #endif // MADELEINE_H
