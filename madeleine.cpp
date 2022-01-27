@@ -7,11 +7,11 @@ using namespace qstd;
 
 Madeleine::Madeleine(int lait, int sucre, int beurre, int oeuf, int farinne)
 {
-    m_ingrediant[0]=sucre;
-    m_ingrediant[1]=farinne;
-    m_ingrediant[2]=oeuf;
-    m_ingrediant[3]=lait;
-    m_ingrediant[4]=beurre;
+    m_ingredient[0]=sucre;
+    m_ingredient[1]=farinne;
+    m_ingredient[2]=oeuf;
+    m_ingredient[3]=lait;
+    m_ingredient[4]=beurre;
 }
 
 int Madeleine::getValueClient(QString client)
@@ -25,9 +25,8 @@ int Madeleine::getValueClient(QString client)
     for(int i = 0; i<5; i++)
     {
         retour += Client::c_preference[indice][i]
-            *Client::c_importanceClient[indice]
-            *m_ingrediant[indice];
-    cout<<Client::c_preference[indice][i]<<" "<<Client::c_importanceClient[indice]<<" "<<m_ingrediant[indice]<<endl;
+                *Client::c_importanceClient[indice]
+                *m_ingredient[i];
     }
     return retour;
 }
@@ -38,10 +37,34 @@ int Madeleine::getValue()
     {
         int ajout =getValueClient(client);
         valeur += ajout;
-        cout<<client<<" : "<<ajout<<endl;
     }
     return valeur;
 }
 
 
+void Madeleine::mutation()
+{
+    float chanceMutation = MyRandom::getFloat();
+    if(chanceMutation> 0.7)
+    {
+        int variation = MyRandom::get(10)+1;
+        int ingredient1=0;
+        int ingredient2=0;
 
+        while(ingredient1==ingredient2 || (m_ingredient[ingredient1]+variation)<0 || (m_ingredient[ingredient1]-variation)<0)
+        {
+            ingredient1=MyRandom::get(5);
+            ingredient2=MyRandom::get(5);
+        }
+        m_ingredient[ingredient1]+=variation;
+        m_ingredient[ingredient2]-=variation;
+    }
+}
+
+/*
+QString Madeleine::toString()
+{
+    QString retour="ingredient";
+    for(int i = 0; i >5; i++)retour+=toString()
+}
+*/

@@ -6,7 +6,7 @@ class MyRandom
 {
 public:
     MyRandom(int seed);
-    int get(int max);
+    static int get(int max);
     static double getFloat();
 };
 
