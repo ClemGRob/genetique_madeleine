@@ -9,15 +9,14 @@ class Individu
 {
 private:
     Madeleine *madeleine;
-    int m_aptitude=-1;
     void mutation();
-    int m_genome[20];
 public:
     Individu();
     Individu(Individu *p);
     Individu(Individu *p, Individu *m);
-
     int evalue();
+    int getValue();
+int m_genome[20];
     static bool triAptitude(Individu *i1, Individu *i2);
     QString toString();
 };

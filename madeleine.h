@@ -10,11 +10,15 @@ private:
     int m_ingredient[5];
 public:
     Madeleine(int lait, int sucre, int beurre, int oeuf, int farrine);
+    Madeleine();
+    Madeleine(Madeleine *madeleine_parent);
+    Madeleine(Madeleine *madeleine_pere, Madeleine *madeleine_mere);
     QString toString();
     int getValueClient(QString client);
     int getValue();
     void mutation();
 
+    static int m_nombreIngredient;
 };
 
 #endif // MADELEINE_H

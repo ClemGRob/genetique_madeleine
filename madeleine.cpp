@@ -4,6 +4,7 @@
 #include "qstd.h"
 using namespace qstd;
 
+int Madeleine::m_nombreIngredient=5;
 
 Madeleine::Madeleine(int lait, int sucre, int beurre, int oeuf, int farinne)
 {
@@ -12,6 +13,29 @@ Madeleine::Madeleine(int lait, int sucre, int beurre, int oeuf, int farinne)
     m_ingredient[2]=oeuf;
     m_ingredient[3]=lait;
     m_ingredient[4]=beurre;
+}
+
+Madeleine::Madeleine()
+{
+    for (int i = 0; i<5; i++)m_ingredient[i]=MyRandom::get(15)+5;
+
+    int somme =-100;
+    for(int i =0; i<Madeleine::m_nombreIngredient; i++)somme +=m_ingredient[i];
+
+    cout<<"la somme "<<somme<<"  valeur repere "<<somme/Madeleine::m_nombreIngredient<<"\n";
+    cout<<"la composition : \n";
+    cout<<m_ingredient[0]<<" "<<m_ingredient[1]<<" "<<m_ingredient[2]<<" "<<m_ingredient[3]<<" "<<m_ingredient[4]<<" ";
+
+    for(int j =0; j<-1*somme/Madeleine::m_nombreIngredient; j++)
+        for(int k = 0; k<Madeleine::m_nombreIngredient; k++)
+            m_ingredient[k]+=1;
+    for(int j =0; j<-1*somme%Madeleine::m_nombreIngredient; j++)m_ingredient[j]+=1;
+
+}
+
+Madeleine::Madeleine(Madeleine *madeleine_parent)
+{
+
 }
 
 int Madeleine::getValueClient(QString client)
@@ -44,21 +68,21 @@ int Madeleine::getValue()
 
 void Madeleine::mutation()
 {
-    float chanceMutation = MyRandom::getFloat();
-    if(chanceMutation> 0.7)
-    {
-        int variation = MyRandom::get(10)+1;
-        int ingredient1=0;
-        int ingredient2=0;
 
-        while(ingredient1==ingredient2 || (m_ingredient[ingredient1]+variation)<0 || (m_ingredient[ingredient1]-variation)<0)
-        {
-            ingredient1=MyRandom::get(5);
-            ingredient2=MyRandom::get(5);
-        }
-        m_ingredient[ingredient1]+=variation;
-        m_ingredient[ingredient2]-=variation;
+    int variation = MyRandom::get(10)+1;
+    int ingredient1=0;
+    int ingredient2=0;
+    cout<<"mutation\n";
+
+    while(ingredient1==ingredient2 || (m_ingredient[ingredient2]-variation)<5 || (m_ingredient[ingredient1]+variation)>60)
+    {
+        variation = MyRandom::get(10)+1;
+        ingredient1=MyRandom::get(5);
+        ingredient2=MyRandom::get(5);
     }
+    m_ingredient[ingredient1]+=variation;
+    m_ingredient[ingredient2]-=variation;
+
 }
 
 
