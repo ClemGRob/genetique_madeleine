@@ -30,17 +30,23 @@ int Individu::evalue()
 
 Individu::Individu()
 {
-    for(int i=0;i<NBREDES;i++) {
+    /*for(int i=0;i<NBREDES;i++) {
         m_genome[i]=1+Parametres::randomGenerator->get(NBREDES);
-    }
+    }*/
    // mutation();
+    madeleine = new Madeleine();
+
 }
 
 Individu::Individu(Individu *p)
 {
-    for(int i=0;i<NBREDES;i++) {
+/*    for(int i=0;i<NBREDES;i++) {
         m_genome[i]=p->m_genome[i];
     }
+    mutation();
+    */
+    *madeleine = new Madeleine(p->madeleine);
+    //madeleine->mutation();
     mutation();
 }
 
@@ -56,8 +62,9 @@ Individu::Individu(Individu *p, Individu *m)
 
 QString Individu::toString()
 {
-    QString res;
+    /*QString res;
     QTextStream buf(&res);
-    return res;
+    return res;*/
+    return madeleine->toString();
 }
 

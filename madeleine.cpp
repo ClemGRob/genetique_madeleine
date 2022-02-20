@@ -35,6 +35,13 @@ Madeleine::Madeleine()
 
 Madeleine::Madeleine(Madeleine *madeleine_parent)
 {
+    for (int i = 0; i<5; i++)m_ingredient[i]=madeleine_parent->m_ingredient[i];
+}
+Madeleine::Madeleine(Madeleine *madeleine_pere, Madeleine *madeleine_mere, float difference)
+{/*
+    float myrandfloat = MyRandom::getFloat();
+    float coef = difference*myrandfloat;
+    m_ingredient[0]=madeleine_pere->m_ingredient**/
 
 }
 

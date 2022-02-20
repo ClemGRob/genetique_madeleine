@@ -12,7 +12,7 @@ public:
     Madeleine(int lait, int sucre, int beurre, int oeuf, int farrine);
     Madeleine();
     Madeleine(Madeleine *madeleine_parent);
-    Madeleine(Madeleine *madeleine_pere, Madeleine *madeleine_mere);
+    Madeleine(Madeleine *madeleine_pere, Madeleine *madeleine_mere, float difference);
     QString toString();
     int getValueClient(QString client);
     int getValue();
