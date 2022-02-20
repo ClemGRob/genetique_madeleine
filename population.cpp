@@ -24,15 +24,24 @@ Individu *Population::selection()
 Population::Population()
 {
     for(int i=0; i<Parametres::nbreIndividus; i++)
+    {
         m_population.append(new Individu);
-}
+        qstd::cout<<" abc"<<endl;
+    }
+
+    }
 
 void Population::run()
 {
     for(int i =0; i<Parametres::nbreGenerations; i++){
+        qstd::cout<<"on est la : "<<i<<" sur "<<Parametres::nbreGenerations<<endl;
+
         foreach (Individu *ind, m_population)
         {
+
+            //            qstd::cout<<ind->toString()<<endl;
             int a = ind->evalue();
+            qstd::cout<<a<<endl;
             if(a==0)
             {
                 qstd::cout<<"bon pour : "<<i<<endl;
@@ -40,7 +49,7 @@ void Population::run()
             }
 
         }
-        qstd::cout<<i<<endl;
+        //qstd::cout<<i<<endl;
         qstd::cout<<m_population.at(0)->toString()<<endl;
         // tri
         std::sort(m_population.begin(), m_population.end(), Individu::triAptitude);
@@ -55,8 +64,17 @@ void Population::run()
         // pour les n-1 autres, on en choisit 1 par roulette biaisée
         for(int i=1;i<Parametres::nbreIndividus-1;i++)
         {
+            m_population.at(i)->mutation();
+            qstd::cout<<"création nouvel elmt"<<endl;
+            /*Individu *sel = selection();
+            Individu *enfant = new Individu(sel);
+            m_population.removeOne(sel);
+            m_population.append(enfant);*/
+
+            /*
             if(i%2==0)
             {
+                qstd::cout<<"création nouvel elmt"<<endl;
                 Individu *sel = selection();
                 Individu *enfant = new Individu(sel);
                 m_population.removeOne(sel);
@@ -69,8 +87,8 @@ void Population::run()
                 Individu *enfant = new Individu(sel1, sel2);
                 m_population.removeOne(sel1);
                 m_population.append(enfant);
-            }
-            //Parametres::print("\tIl devient "+enfant->toString(),2);
+            }*/
+
         }
     }
 }

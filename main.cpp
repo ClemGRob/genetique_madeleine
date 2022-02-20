@@ -1,8 +1,19 @@
 #include <QCoreApplication>
 #include "madeleine.h"
 #include "individu.h"
+#include "population.h"
 #include "qstd.h"
 using namespace qstd;
+void testIndividus() {
+    Individu i1, i2;
+    i1.evalue();
+    i2.evalue();
+    Parametres::print(i1.toString(), 1);
+    Parametres::print(i2.toString(), 1);
+}
+
+
+
 int main()
 {
     /*
@@ -27,6 +38,9 @@ int main()
     Individu b(a);
     cout<<"\n"<<b. getValue()<<"  "<<b.toString()<<"\n";
     */
+
+    Population p;
+    p.run();
 
 
 

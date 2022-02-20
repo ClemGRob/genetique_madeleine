@@ -25,7 +25,7 @@ int Individu::getValue()
 }
 int Individu::evalue()
 {
-    return 0;
+    return madeleine->getValue();
 }
 
 Individu::Individu()
@@ -34,6 +34,7 @@ Individu::Individu()
         m_genome[i]=1+Parametres::randomGenerator->get(NBREDES);
     }*/
    // mutation();
+
     madeleine = new Madeleine();
 
 }

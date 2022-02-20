@@ -17,19 +17,22 @@ Madeleine::Madeleine(int lait, int sucre, int beurre, int oeuf, int farinne)
 
 Madeleine::Madeleine()
 {
+    cout<<" new ind"<<endl;
     for (int i = 0; i<5; i++)m_ingredient[i]=MyRandom::get(15)+5;
 
     int somme =-100;
     for(int i =0; i<Madeleine::m_nombreIngredient; i++)somme +=m_ingredient[i];
 
-    cout<<"la somme "<<somme<<"  valeur repere "<<somme/Madeleine::m_nombreIngredient<<"\n";
-    cout<<"la composition : \n";
-    cout<<m_ingredient[0]<<" "<<m_ingredient[1]<<" "<<m_ingredient[2]<<" "<<m_ingredient[3]<<" "<<m_ingredient[4]<<" ";
+    //cout<<"la somme "<<somme<<"  valeur repere "<<somme/Madeleine::m_nombreIngredient<<"\n";
+    //cout<<"la composition : \n";
 
     for(int j =0; j<-1*somme/Madeleine::m_nombreIngredient; j++)
         for(int k = 0; k<Madeleine::m_nombreIngredient; k++)
             m_ingredient[k]+=1;
     for(int j =0; j<-1*somme%Madeleine::m_nombreIngredient; j++)m_ingredient[j]+=1;
+
+//    cout<<m_ingredient[0]<<" "<<m_ingredient[1]<<" "<<m_ingredient[2]<<" "<<m_ingredient[3]<<" "<<m_ingredient[4]<<" ";
+
 
 }
 

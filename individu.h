@@ -9,8 +9,9 @@ class Individu
 {
 private:
     Madeleine *madeleine;
-    void mutation();
+
 public:
+    void mutation();
     Individu();
     Individu(Individu *p);
     Individu(Individu *p, Individu *m);
