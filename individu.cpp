@@ -1,8 +1,15 @@
 #include "individu.h"
 #include "parametres.h"
 #include <QTextStream>
+#include "qstd.h"
+using namespace qstd;
 
 
+
+QString Individu::toString()
+{
+    return madeleine->toString();
+}
 
 
 void Individu::mutation()
@@ -17,7 +24,7 @@ void Individu::mutation()
 
 bool Individu::triAptitude(Individu *i1, Individu *i2)
 {
-    return i1->evalue() < i2->evalue();
+    return i1->evalue() > i2->evalue();
 }
 int Individu::getValue()
 {
@@ -41,31 +48,16 @@ Individu::Individu()
 
 Individu::Individu(Individu *p)
 {
-/*    for(int i=0;i<NBREDES;i++) {
-        m_genome[i]=p->m_genome[i];
-    }
-    mutation();
-    */
-    *madeleine = new Madeleine(p->madeleine);
-    //madeleine->mutation();
+
+    madeleine = new Madeleine(p->madeleine);
+
     mutation();
 }
 
 Individu::Individu(Individu *p, Individu *m)
 {
 
-    int position=Parametres::randomGenerator->get(NBREDES);
-    for(int i =0; i<position; i++)m_genome[i]=p->m_genome[i];
-    for(int i =position; i<6; i++)m_genome[i]=m->m_genome[i];
+    madeleine = new Madeleine(p->madeleine, m->madeleine);
     mutation();
-}
-
-
-QString Individu::toString()
-{
-    /*QString res;
-    QTextStream buf(&res);
-    return res;*/
-    return madeleine->toString();
 }
 

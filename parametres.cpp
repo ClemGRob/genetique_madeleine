@@ -2,9 +2,9 @@
 #include "qstd.h"
 using namespace qstd;
 
-int Parametres::nbreIndividus=20;
+int Parametres::nbreIndividus=50;
 float Parametres::tauxMutation=0.3;
-int Parametres::nbreGenerations=100;
+int Parametres::nbreGenerations=500;
 int Parametres::aptitudeMin=0;
 
 int Parametres::debug=2;

@@ -11,6 +11,7 @@ private:
 public:
     Population();
     void run();
+    QString toString();
 };
 
 #endif // POPULATION_H

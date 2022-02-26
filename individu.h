@@ -9,6 +9,7 @@ class Individu
 {
 private:
     Madeleine *madeleine;
+    int m_ingredient[5];
 
 public:
     void mutation();
