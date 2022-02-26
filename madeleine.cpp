@@ -15,7 +15,6 @@ int Madeleine::somme()
 
 Madeleine::Madeleine(int lait, int sucre, int beurre, int oeuf, int farinne)
 {
-    cout<<"contructeur 1"<<endl;
     m_ingredient[0]=sucre;
     m_ingredient[1]=farinne;
     m_ingredient[2]=oeuf;
@@ -31,7 +30,6 @@ int Madeleine::get_ingredient(int index)
 }
 Madeleine::Madeleine()
 {
-    cout<<"contructeur 2"<<endl;
 
     for (int i = 0; i<5; i++)m_ingredient[i]=MyRandom::get(15)+5;
 
@@ -116,6 +114,8 @@ int Madeleine::getValueClient(QString client)
     }
     return retour;
 }
+
+
 int Madeleine::getValue()
 {
     int valeur = 0;

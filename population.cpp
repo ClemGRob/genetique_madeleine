@@ -69,7 +69,7 @@ void Population::run()
         //  Parametres::print("On stocke l'alpha dans une nouvelle generation : "+meilleur->toString(),2);
         QList<Individu *> nouvelleGeneration;
         nouvelleGeneration.append(meilleur);
-        // pour les n-1 autres, on en choisit 1 par roulette biaisée
+        // pour les n-1 autres, on en choisit 1 par roulette biais
         for(int i=1;i<Parametres::nbreIndividus-1;i++)
         {
             m_population.at(i)->mutation();
