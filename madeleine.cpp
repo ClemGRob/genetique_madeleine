@@ -47,42 +47,27 @@ Madeleine::Madeleine()
         i++;
         if(i==5)i = 0;
     }
-
-
-
 }
 
 Madeleine::Madeleine(Madeleine *madeleine_parent)
 {
-
-
     for (int i = 0; i<5; i++)
     {
         m_ingredient[i]=madeleine_parent->m_ingredient[i];
     }
-        /*m_ingredient[0]=madeleine_parent->m_ingredient[0];
-    qstd::cout<<"a"<<endl;
-    m_ingredient[1]=madeleine_parent->m_ingredient[1];
-    qstd::cout<<"a"<<endl;
-    m_ingredient[2]=madeleine_parent->m_ingredient[2];
-    qstd::cout<<"a"<<endl;
-    m_ingredient[3]=madeleine_parent->m_ingredient[3];
-    qstd::cout<<"a"<<endl;
-    m_ingredient[4]=madeleine_parent->m_ingredient[4];*/
 }
-
-
 
 Madeleine::Madeleine(Madeleine *madeleine_pere, Madeleine *madeleine_mere)
 {
-    float myrandfloat = 0;//MyRandom::getFloat();
+    float myrandfloat = 0;
     while (myrandfloat > 0.8 || myrandfloat < 0.2)myrandfloat = MyRandom::getFloat();
-    for(int i = 0; i<5; i++)m_ingredient[i]=(madeleine_pere->m_ingredient[i]*myrandfloat)+(madeleine_mere->m_ingredient[i]*(1-myrandfloat));
+    for(int i = 0; i<5; i++)
+        m_ingredient[i]=(madeleine_pere->m_ingredient[i]*myrandfloat)
+                       +(madeleine_mere->m_ingredient[i]*(1-myrandfloat));
 
 
     // armonisation
     int i = 0;
-    //int s = somme();
     while(somme() < 100)
     {
         m_ingredient[i]+=1;
@@ -135,7 +120,9 @@ void Madeleine::mutation()
     int ingredient1=0;
     int ingredient2=0;
 
-    while(ingredient1==ingredient2 || (m_ingredient[ingredient2]-variation)<10 || (m_ingredient[ingredient1]+variation)>50)
+    while(ingredient1==ingredient2
+          ||(m_ingredient[ingredient2]-variation)<10
+          ||(m_ingredient[ingredient1]+variation)>50)
     {
         variation = MyRandom::get(10)+1;
         ingredient1=MyRandom::get(5);

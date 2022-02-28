@@ -94,6 +94,6 @@ void Population::run()
 
         }
     }
-    qstd::cout<<"la meilleur recette est : "<<max.toString()<<"avec un scor de : "<<max.evalue()<<"  à l'iteration : "<<iteration_reference<<endl;
+    qstd::cout<<"la meilleure recette est : "<<max.toString()<<"avec un score de : "<<max.evalue()<<"  à l'iteration : "<<iteration_reference<<endl;
 
 }
